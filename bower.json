@@ -22,7 +22,8 @@
     "paper-icon-button": "PolymerElements/paper-icon-button#^1.1.4",
     "paper-item": "PolymerElements/paper-item#^1.2.1",
     "iron-icons": "PolymerElements/iron-icons#^1.2.0",
-    "iron-icon": "PolymerElements/iron-icon#^1.0.12"
+    "iron-icon": "PolymerElements/iron-icon#^1.0.12",
+    "coronita-icons": "ssh://globaldevtools.bbva.com:7999/ct/coronita-icons.git#^9.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
@@ -31,4 +32,3 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
-
