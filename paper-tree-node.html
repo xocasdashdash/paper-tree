@@ -202,7 +202,17 @@ Custom property | Description | Default
 </dom-module>
 
 <script>
-
+    (() => {
+      const _calcIcon = function(value){
+        debugger
+        if (value === "valid") {
+          return "coronita:correct";
+        }
+        if (value === "invalid"){
+          return "coronita:error";
+        }
+        return ""
+      };
     Polymer({
 
         is: 'paper-tree-node',
@@ -210,20 +220,22 @@ Custom property | Description | Default
           this.element_initialized = true
         },
         _nodeStatusChanged: function  (newValue, oldValue){
-          this.node_status_visible = typeof(newValue) !== 'undefined'
-          if(this.element_initialized && typeof(newValue) !== 'undefined'){
+          this.node_status_visible = newValue !== "pending"
+          if(this.element_initialized && this.node_status_visible){
             if (newValue != oldValue){
               this.css_class = "hidden";
               setTimeout(() => {
                   this.css_class = "fadeIn"
               });
             }
+            let icon = _calcIcon(newValue)
             setTimeout(() => {
-              this.node_status_icon = "coronita:" + (newValue ? "correct" : "error")
+              this.node_status_icon = icon
             })
           } else {
+            let icon = _calcIcon(newValue);
             if (this.node_status_visible){
-                this.node_status_icon = "coronita:" + (newValue ? "correct" : "error")
+                this.node_status_icon = icon;
             }
           }
 
@@ -352,5 +364,5 @@ Custom property | Description | Default
         }
 
     });
-
+    })()
 </script>
